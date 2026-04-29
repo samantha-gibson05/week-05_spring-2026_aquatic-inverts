@@ -3,3 +3,35 @@ title: "in class"
 format: pdf
 author: sami gibson
 ---
+# set up
+## packages
+```{r}
+#| label: packages
+library(tidyverse)
+library(here)
+library(janitor)
+library(snakecase)
+
+library(scales)
+library(readxl)
+library(naniar)
+library(patchwork)
+library(readxl)
+```
+
+## data
+```{r}
+#|label: data
+taxon_list <- read_csv(here("data", "taxon_list.csv")) 
+
+aq_ins <- read_xlsx(here("data", "Aquatic Sampling Data-2026-03-10.xlsx"),
+                    sheet = "Aquatic Insects") 
+
+sites <- read_xlsx(here("data", "Aquatic Sampling Data-2026-03-10.xlsx"),
+                   sheet = "sites")
+
+water_quality <- read_xlsx(here("data", "Aquatic Sampling Data-2026-03-10.xlsx"),
+                           sheet = "Water Quality",
+                           na = c("", "n/a", "N/A", "over", "173+")) 
+```
+
