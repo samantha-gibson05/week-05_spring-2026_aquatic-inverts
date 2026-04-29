@@ -1,0 +1,5 @@
+---
+title: "in class"
+format: pdf
+author: sami gibson
+---
