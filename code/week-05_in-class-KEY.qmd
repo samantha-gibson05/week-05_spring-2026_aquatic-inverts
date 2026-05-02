@@ -72,6 +72,15 @@ Goal: create a new object from `sites` that only includes NCOS sites
 
 Use: filter downstream data frames using new object
 
+```{r}
+#| label: ncos-site-object
+
+# creating new object from sites
+ncos_sites <- sites |> 
+  # filter to only include NCOS sites sampled four times a year
+  filter(sector == "NCOS" & sampling_frequency == "Quarterly")
+```
+
 ## Cleaning `taxon_list`
 
 Goal: convert character strings in existing `taxon_list` data frame into snake case

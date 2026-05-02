@@ -207,7 +207,35 @@ use a theme that is different from the ggplot() default
 :::
 ```{r}
 #| label: 1c code your figure
+#| fig-width: 10
+#| fig-height: 6
 
+# base layer: ggplot
+ostracods_plot <- ggplot(data = ostracods, # assigns plot to object ostracods_plot 
+                         # uses ostracods data frame
+                         mapping = aes(x = site_full, # x-axis: site_full
+                                       y = log_ave_lit)) + # y-axis: log_ave_lit
+  # first layer: jittered points to show individual average abundance/L measurements
+  geom_jitter(height = 0, # jitter hieght is 0
+              width = 0.1, # jitter width is 0
+              shape = 21, # jitter point shape is circle
+              size = 2) + # jitter point size is 2
+  # second layer: larger colored points to show median abundance at each site
+  stat_summary(geom = "point", # uses point geometry
+               fun = "median", # calculates the median
+               shape = 18, # shape is diamond
+               size = 4,# size is 4
+               color = 'magenta3') + # color is pink
+  # wraps long site names so x-axis labels are readable
+  scale_x_discrete(labels = label_wrap(width = 15)) +
+  labs(x = "Site", # relabel x-axis
+       y = "log + 1 transformed average abundance/L", # relabel y-axis
+       title = "Ostracods") + # title to describe what group is plotted
+  # uses non-default theme
+  theme_minimal()
+
+# shows plot
+ostracods_plot
 ```
 
 ### d. Create a multipanel figure
