@@ -360,8 +360,23 @@ At the end of your code chunk, display 10 random rows from your data frame using
 Revisit the directions from 2a and your outline to determine which columns you might keep from the data frame, which columns you might manipulate, and what new columns you might create.
 :::
 ```{r}
-#| label: 1b wrangle data
+#| label: 2b wrangle data
 
+# create object sal_taxa from aq_ins_clean
+sal_taxa <- aq_ins_clean |> 
+  # remove rows that are missing median salinity values
+  filter(!is.na(med_sal)) |> 
+  # create column that calculates log-transformed abundance
+  mutate(log_ave_lit = log(ave_lit + 1),
+         # mutates to title-case taxon names
+         taxon = str_to_title(taxon)) |> 
+  # order taxon levels by maximum average abundance per liter
+  mutate(taxon = fct_reorder(taxon, ave_lit, .fun = max, .desc = TRUE)) |> 
+  # keep only the columns needed for the figure
+  select(date, site, site_full, taxon, ave_lit, log_ave_lit, med_sal)
+
+# display 10 random rows from sal_taxa
+sal_taxa |> slice_sample(n = 10)
 ```
 
 ### c. Code your figure
