@@ -389,8 +389,35 @@ use different colors from the default
 take out the legend
 :::
 ```{r}
-#| label: 1c code your figure
+#| label: 2c code your figure
+#| fig-width: 10
+#| fig-height: 8
 
+# base layer: ggplot
+sal_taxa_plot <- ggplot(data = sal_taxa, # assigns plot to object sal_taxa_plot 
+                        # uses sal_taxa data frame
+                        mapping = aes(x = med_sal, # x-axis: med_sal
+                                      y = log_ave_lit, # y-axis: log_ave_lit
+                                      color = taxon)) + # color by taxon
+  # first layer: points show individual abundance measurement at each salinity value
+  geom_point(shape = 16, # shape is circle
+             size = 2, # size is 2
+             alpha = 0.7) + # opacity is 0.7
+  # separate panels for each taxon with free x- and y-axis scales
+  facet_wrap(~ taxon, scales = "free") +
+  # use non-default colors for points
+  scale_color_viridis_d() +
+  labs(x = "Median salinity (ppt)", # relabel x-axis
+       y = "log + 1 transformed average abundance/L", # relabel y-axis
+       # creates descriptive title
+       title = "Invertebrate abundance as a function of salinity") +
+  # uses non-default theme
+  theme_minimal() +
+  # remove redundant legend
+  theme(legend.position = "none")
+
+# shows plot
+sal_taxa_plot
 ```
 
 ### d. Interpret your figure
