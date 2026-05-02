@@ -340,11 +340,11 @@ geometry:
 facets:
 :::
 
-- x-axis:
-- y-axis:
-- color:
-- geometry:
-- facets:
+- x-axis: salinity (ppt)
+- y-axis: log + 1 transformed average abundance/L (column: `log_ave_lit`)
+- color: by taxon
+- geometry: points (using `geom_point()`)
+- facets: use function `facet_wrap()` by column `taxon` and arguemnt `scales = "free"`
 
 ### b. Wrangle your data
 ::: {.callout-note}
