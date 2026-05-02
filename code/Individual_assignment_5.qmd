@@ -169,10 +169,10 @@ geometry to represent average abundance/L:
 geometry to represent medians:
 :::
 
-- x-axis:
-- y-axis:
-- geometry to represent average abundance/L:
-- geometry to represent medians:
+- x-axis: site (column: `site_full`)
+- y-axis: log + 1 transformed average ostracod abundance/L
+- geometry to represent average abundance/L: jittered circular open points (using: `geom_jitter()`)
+- geometry to represent medians: larger diamond pink-filled points (using: `stat_summary()`)
 
 ### b. Wrangle your data
 ::: {.callout-note}
