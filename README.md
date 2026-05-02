@@ -36,3 +36,5 @@ library(patchwork)
 The rendered key for the code in this repository is  [here](https://github.com/samantha-gibson05/week-05_spring-2026_aquatic-inverts/blob/main/code/week-05_in-class-KEY.pdf)
 
 The rendered document from class is [here](https://github.com/samantha-gibson05/week-05_spring-2026_aquatic-inverts/blob/main/code/Untitled.pdf)
+
+The rendered document for Individual Assignment 5 is [here] (https://github.com/samantha-gibson05/week-05_spring-2026_aquatic-inverts/blob/main/code/Individual_assignment_5.pdf)
