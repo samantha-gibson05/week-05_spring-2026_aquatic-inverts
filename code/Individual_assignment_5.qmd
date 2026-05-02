@@ -152,22 +152,8 @@ aq_ins_clean <- aq_ins |>
 # Problems
 
 ## 1. Visualizing differences across sites in major taxon abundance
-::: {.callout-note}
-In class, we visualized the differences across sites in median (log transformed) copepod abundance.
 
-In this section, you will create another figure to add to the multipanel plot of salinity and copepod abundance to show ostracod abundance.
-:::
 ### a. Plan your figure
-::: {.callout-note}
-In part 1d, you should end up with a three panel figure. All three panels should have site on the x-axis, but each panel will have a different y-axis.
-
-In part 1c, you will create one component of the three panel figure. Provide a list of the axes and geometries you will need to create a figure in 1c showing differences between sites in ostracod abundance.
-
-x-axis:
-y-axis:
-geometry to represent average abundance/L:
-geometry to represent medians:
-:::
 
 - x-axis: site (column: `site_full`)
 - y-axis: log + 1 transformed average ostracod abundance/L
@@ -175,13 +161,7 @@ geometry to represent medians:
 - geometry to represent medians: larger diamond pink-filled points (using: `stat_summary()`)
 
 ### b. Wrangle your data
-::: {.callout-note}
-The aq_ins_clean data frame will need some further wrangling before you create the figure you described in part 1a.
 
-In this section, create the data frame you will need to make your figure.
-
-At the end of your code chunk, display 10 random rows from your data frame using slice_sample().
-:::
 ```{r}
 #| label: 1b wrangling data
 #| 
@@ -197,14 +177,7 @@ ostracods |> slice_sample(n = 10)
 ```
 
 ### c. Code your figure
-::: {.callout-note}
-Create the figure you outlined in part 1a in a way that mirrors the two-panel figure with which we ended class. For full marks:
 
-make sure the x- and y-axes are labelled in a readable format
-include a title that describes the taxonomic group being plotted
-represent the median in a way that is visually distinct from each individual average abundance/L measurement with color, shape size, and shape type
-use a theme that is different from the ggplot() default
-:::
 ```{r}
 #| label: 1c code your figure
 #| fig-width: 10
@@ -239,9 +212,7 @@ ostracods_plot
 ```
 
 ### d. Create a multipanel figure
-::: {.callout-note}
-Combine the figure you made in 1c with the figures from class to create a multipanel figure using patchwork. Position the plots in the following arrangement:
-:::
+
 ```{r}
 #| label: 1d creating multipanel figure
 #| fig-width: 14
@@ -309,56 +280,23 @@ salinity / (copepods | ostracods_plot)
 ```
 
 ### e. Interpret your figure
-::: {.callout-note}
-In 1-2 sentences each, describe:
 
-differences between sites in copepod and ostracod abundance
-how ostracod abundance may relate (or not) to site-level differences in salinity
-Be specific using the visual components of the plot.
-:::
 **Differences between sites in copepod and ostracod abundance**: Copepod abundance varies by site, with the highest median value (indicated by large blue points) at South of Venoco Bridge and relatively low medians at the Main Channel and North of Phelps Bridge and the spread of individual observations (indicated by jittered black circles) shows substantial variability at some sites. In contrast, ostracod abundance is highest at South of Phelps Bridge (indicated by highest large pink diamond) with a wide spread of higher values, while most other sites (North of Venoco Bridge and South of Venoco Bridge) have medians near zero and tightly clustered low observations showing lower variability at the majority of the sites.
 
 **How ostracod abundance may relate (or not) to site-level differences in salinity**: Ostracod abundance does not show a consistent relationship with salinity across sites as the highest ostracod median (shown by pink diamond) occurs at South of Phelps Bridge which has relatively low median salinity (shown by red circle), while higher salinity sites like North of Venoco Bridge have near-zero ostracod medians (shown by pink diamond). By looking at the lack of consistent pattern in the positions of the red salinity medians relative to the purple ostracod medians across sites I would infer that variables other than salinity may be influencing ostracod abundance.
 
 ## 2. Visualizing total abundance as a function of salinity
-::: {.callout-note}
-In this problem, you will create a figure visualizing log-transformed abundance as a function of salinity (measured in parts per thousand) to determine how salinity may influence invertebrate abundance (regardless of site).
-:::
+
 ### a. Plan your figure
-::: {.callout-note}
-At the end of part 2c, you should have a figure:
-
-depicting log-transformed average abundance/L on the y-axis and salinity on the x-axis
-with different panels for each taxon in aq_ins_clean with free scales for both axes
-with each taxon in its own color
-Provide a list of values, geometries, and/or arguments that would be appropriate to make a figure matching this description.
-
-x-axis:
-y-axis:
-color:
-geometry:
-facets:
-:::
 
 - x-axis: salinity (ppt)
 - y-axis: log + 1 transformed average abundance/L (column: `log_ave_lit`)
 - color: by taxon
 - geometry: points (using `geom_point()`)
-- facets: use function `facet_wrap()` by column `taxon` and arguement `scales = "free"`
+- facets: use function `facet_wrap()` by column `taxon` and argument `scales = "free"`
 
 ### b. Wrangle your data
-::: {.callout-note}
-The aq_ins_clean data frame will need some further wrangling before you create the figure you described in part 1a.
 
-In this section, manipulate the existing aq_ins_clean data frame to create new columns, modify existing columns, and/or select columns to create the figure you outlined in part 1a.
-
-Additionally:
-
-make sure each taxon is in title case
-order taxon levels by maximum abundance
-At the end of your code chunk, display 10 random rows from your data frame using slice_sample().
-Revisit the directions from 2a and your outline to determine which columns you might keep from the data frame, which columns you might manipulate, and what new columns you might create.
-:::
 ```{r}
 #| label: 2b wrangle data
 
@@ -380,14 +318,7 @@ sal_taxa |> slice_sample(n = 10)
 ```
 
 ### c. Code your figure
-::: {.callout-note}
-Create the figure you outlined in part 2a. For full marks:
 
-make sure the x- and y-axes are labelled in a readable format
-use a different theme from the default
-use different colors from the default
-take out the legend
-:::
 ```{r}
 #| label: 2c code your figure
 #| fig-width: 10
@@ -421,12 +352,9 @@ sal_taxa_plot
 ```
 
 ### d. Interpret your figure
-::: {.callout-note}
-In 3-5 sentences each, describe differences or similarities between taxa in relationships between abundance and salinity. Be specific using the visual components of the plot.
-:::
 
 **Differences between taxa in relationships between abundance and salinity**:
-The relationship between abundance and salinity varies substantially across taxa which is seen by the different point distributions within each facet. Some taxa (including copepod, ostracod and cladocera) show higher abundances primarily at low salinity values (shown by clustered points with higher y-values near the left side of the x-axis), with abundances dropping off at higher salinities. Other taxa (such as Nematode and Annelida polychaete) are mostly concentrated near zero abundance across all salinities (indicated by points clustered around near-zero y-axis values), indicating little variation and no clear relationship.
+The relationship between abundance and salinity varies substantially across taxa which is seen by the different point distributions within each facet. Some taxa (including ostracod and cladocera) show higher abundances primarily at low salinity values (shown by clustered points with higher y-values near the left side of the x-axis), with abundances dropping off at higher salinities. Other taxa (such as Nematode and Annelida polychaete) are mostly concentrated near zero abundance across all salinities (indicated by points clustered around near-zero y-axis values), indicating little variation and no clear relationship.
 
 **Similarities between taxa in relationships between abundance and salinity**:
 Across some taxa (including: cladocera, ostracod, and copepod), there is a general pattern of higher abundances occurring at lower salinity values, shown by the clustering of higher y-values on the left side of many panels. Additionally, some taxa (including: Annelida oligochaete, Annelida polychaete, and Nematode) exhibit a large number of observations near zero abundance (points along the bottom of each panel), suggesting that low or absent abundance is most common regardless of salinity. Several taxa also show high variability at low salinity (wide vertical spread of points near low x-values), but much less variability at higher salinity, where points are more tightly clustered near zero. 
