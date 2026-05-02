@@ -148,3 +148,143 @@ aq_ins_clean <- aq_ins |>
   mutate(site_full = fct_reorder(site_full, med_sal, .fun = "median", .na_rm = TRUE),
          site_full = fct_rev(site_full))
 ```
+
+# Problems
+
+## 1. Visualizing differences across sites in major taxon abundance
+::: {.callout-note}
+In class, we visualized the differences across sites in median (log transformed) copepod abundance.
+
+In this section, you will create another figure to add to the multipanel plot of salinity and copepod abundance to show ostracod abundance.
+:::
+### a. Plan your figure
+::: {.callout-note}
+In part 1d, you should end up with a three panel figure. All three panels should have site on the x-axis, but each panel will have a different y-axis.
+
+In part 1c, you will create one component of the three panel figure. Provide a list of the axes and geometries you will need to create a figure in 1c showing differences between sites in ostracod abundance.
+
+x-axis:
+y-axis:
+geometry to represent average abundance/L:
+geometry to represent medians:
+:::
+
+- x-axis:
+- y-axis:
+- geometry to represent average abundance/L:
+- geometry to represent medians:
+
+### b. Wrangle your data
+::: {.callout-note}
+The aq_ins_clean data frame will need some further wrangling before you create the figure you described in part 1a.
+
+In this section, create the data frame you will need to make your figure.
+
+At the end of your code chunk, display 10 random rows from your data frame using slice_sample().
+:::
+```{r}
+#| label: 1b wrangling data
+
+```
+
+### c. Code your figure
+::: {.callout-note}
+Create the figure you outlined in part 1a in a way that mirrors the two-panel figure with which we ended class. For full marks:
+
+make sure the x- and y-axes are labelled in a readable format
+include a title that describes the taxonomic group being plotted
+represent the median in a way that is visually distinct from each individual average abundance/L measurement with color, shape size, and shape type
+use a theme that is different from the ggplot() default
+:::
+```{r}
+#| label: 1c code your figure
+
+```
+
+### d. Create a multipanel figure
+::: {.callout-note}
+Combine the figure you made in 1c with the figures from class to create a multipanel figure using patchwork. Position the plots in the following arrangement:
+:::
+```{r}
+#| label: 1d creating multipanel figure
+
+```
+
+### e. Interpret your figure
+::: {.callout-note}
+In 1-2 sentences each, describe:
+
+differences between sites in copepod and ostracod abundance
+how ostracod abundance may relate (or not) to site-level differences in salinity
+Be specific using the visual components of the plot.
+:::
+**Differences between sites in copepod and ostracod abundance**: 
+
+**How ostracod abundance may relate (or not) to site-level differences in salinity**:
+
+## 2. Visualizing total abundance as a function of salinity
+::: {.callout-note}
+In this problem, you will create a figure visualizing log-transformed abundance as a function of salinity (measured in parts per thousand) to determine how salinity may influence invertebrate abundance (regardless of site).
+:::
+### a. Plan your figure
+::: {.callout-note}
+At the end of part 2c, you should have a figure:
+
+depicting log-transformed average abundance/L on the y-axis and salinity on the x-axis
+with different panels for each taxon in aq_ins_clean with free scales for both axes
+with each taxon in its own color
+Provide a list of values, geometries, and/or arguments that would be appropriate to make a figure matching this description.
+
+x-axis:
+y-axis:
+color:
+geometry:
+facets:
+:::
+
+- x-axis:
+- y-axis:
+- color:
+- geometry:
+- facets:
+
+### b. Wrangle your data
+::: {.callout-note}
+The aq_ins_clean data frame will need some further wrangling before you create the figure you described in part 1a.
+
+In this section, manipulate the existing aq_ins_clean data frame to create new columns, modify existing columns, and/or select columns to create the figure you outlined in part 1a.
+
+Additionally:
+
+make sure each taxon is in title case
+order taxon levels by maximum abundance
+At the end of your code chunk, display 10 random rows from your data frame using slice_sample().
+Revisit the directions from 2a and your outline to determine which columns you might keep from the data frame, which columns you might manipulate, and what new columns you might create.
+:::
+```{r}
+#| label: 1b wrangle data
+
+```
+
+### c. Code your figure
+::: {.callout-note}
+Create the figure you outlined in part 2a. For full marks:
+
+make sure the x- and y-axes are labelled in a readable format
+use a different theme from the default
+use different colors from the default
+take out the legend
+:::
+```{r}
+#| label: 1c code your figure
+
+```
+
+### d. Interpret your figure
+::: {.callout-note}
+In 3-5 sentences each, describe differences or similarities between taxa in relationships between abundance and salinity. Be specific using the visual components of the plot.
+:::
+
+
+
+
