@@ -25,6 +25,10 @@ library(patchwork)
 ├── code                                          
 │   ├── week-05_in-class-KEY.pdf                  # key (comes with repo)
 │   └── week-05_in-class-KEY.qmd
+│   └── Individual_assignment_5.pdf
+│   └── Individual_assignment_5.qmd
+│   └── in_class.pdf
+│   └── in_class.qmd
 ├── data
 │   ├── Aquatic Sampling Data-2026-03-10.xlsx     # invertebrate survey data
 │   └── taxon_list.csv                            # taxonomic information
@@ -37,4 +41,4 @@ The rendered key for the code in this repository is  [here](https://github.com/s
 
 The rendered document from class is [here](https://github.com/samantha-gibson05/week-05_spring-2026_aquatic-inverts/blob/main/code/Untitled.pdf)
 
-The rendered document for Individual Assignment 5 is [here] (https://github.com/samantha-gibson05/week-05_spring-2026_aquatic-inverts/blob/main/code/Individual_assignment_5.pdf)
+**The rendered document for Individual Assignment 5 is** [here](https://github.com/samantha-gibson05/week-05_spring-2026_aquatic-inverts/blob/main/code/Individual_assignment_5.pdf)
