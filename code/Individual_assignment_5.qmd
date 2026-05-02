@@ -316,9 +316,9 @@ differences between sites in copepod and ostracod abundance
 how ostracod abundance may relate (or not) to site-level differences in salinity
 Be specific using the visual components of the plot.
 :::
-**Differences between sites in copepod and ostracod abundance**: 
+**Differences between sites in copepod and ostracod abundance**: Copepod abundance varies by site, with the highest median value (indicated by large blue points) at South of Venoco Bridge and relatively low medians at the Main Channel and North of Phelps Bridge and the spread of individual observations (indicated by jittered black circles) shows substantial variability at some sites. In contrast, ostracod abundance is highest at South of Phelps Bridge (indicated by highest large pink diamond) with a wide spread of higher values, while most other sites (North of Venoco Bridge and South of Venoco Bridge) have medians near zero and tightly clustered low observations showing lower variability at the majority of the sites.
 
-**How ostracod abundance may relate (or not) to site-level differences in salinity**:
+**How ostracod abundance may relate (or not) to site-level differences in salinity**: Ostracod abundance does not show a consistent relationship with salinity across sites as the highest ostracod median (shown by pink diamond) occurs at South of Phelps Bridge which has relatively low median salinity (shown by red circle), while higher salinity sites like North of Venoco Bridge have near-zero ostracod medians (shown by pink diamond). By looking at the lack of consistent pattern in the positions of the red salinity medians relative to the purple ostracod medians across sites I would infer that variables other than salinity may be influencing ostracod abundance.
 
 ## 2. Visualizing total abundance as a function of salinity
 ::: {.callout-note}
