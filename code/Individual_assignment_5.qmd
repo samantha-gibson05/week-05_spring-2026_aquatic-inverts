@@ -367,9 +367,9 @@ sal_taxa <- aq_ins_clean |>
   # remove rows that are missing median salinity values
   filter(!is.na(med_sal)) |> 
   # create column that calculates log-transformed abundance
-  mutate(log_ave_lit = log(ave_lit + 1),
-         # mutates to title-case taxon names
-         taxon = str_to_title(taxon)) |> 
+  mutate(log_ave_lit = log(ave_lit + 1)) |>
+  # mutates to title-case taxon names
+  mutate(taxon = str_replace_all(taxon, "_", " "), taxon = str_to_title(taxon)) |>
   # order taxon levels by maximum average abundance per liter
   mutate(taxon = fct_reorder(taxon, ave_lit, .fun = max, .desc = TRUE)) |> 
   # keep only the columns needed for the figure
@@ -425,6 +425,9 @@ sal_taxa_plot
 In 3-5 sentences each, describe differences or similarities between taxa in relationships between abundance and salinity. Be specific using the visual components of the plot.
 :::
 
+**Differences between taxa in relationships between abundance and salinity**:
+The relationship between abundance and salinity varies substantially across taxa which is seen by the different point distributions within each facet. For instance, copepods display relatively high abundances across a wide range of salinities, with several high values (shown by points above 4–6 on the y-axis) which occur at both low and moderate salinities, indicating a weak or inconsistent relationship. In contrast, some taxa (including copepod, ostracod and cladocera) show higher abundances primarily at low salinity values (shown by clustered points with higher y-values near the left side of the x-axis), with abundances dropping off at higher salinities. Other taxa (such as Nematode and Annelida polychaete) are mostly concentrated near zero abundance across all salinities (indicated by points clustered around near-zero y-axis values), indicating little variation and no clear relationship.
 
-
+**Similarities between taxa in relationships between abundance and salinity**:
+Across somne taxa (including: cladocera, ostracod, and copepod), there is a general pattern of higher abundances occurring at lower salinity values, shown by the clustering of higher y-values on the left side of many panels. Additionally, some taxa (including: Annelida oligochaete, Annelida polychaete, and Nematode) exhibit a large number of observations near zero abundance (points along the bottom of each panel), suggesting that low or absent abundance is most common regardless of salinity. Several taxa also show high variability at low salinity (wide vertical spread of points near low x-values), but much less variability at higher salinity, where points are more tightly clustered near zero. 
 
