@@ -1,7 +1,7 @@
 ---
 title: "Individual assignment 5"
 author: "Sami Gibson"
-date: "2026-04-27"
+date: "2026-05-02"
 format: pdf
 execute:
   message: false
@@ -187,7 +187,7 @@ At the end of your code chunk, display 10 random rows from your data frame using
 #| 
 # creating a new object ostracods from aq_ins_clean
 ostracods <- aq_ins_clean |> 
-  # filter to only include opbseervations where taxon is ostracods
+  # filter to only include observations where taxon is ostracods
   filter(taxon == "ostracod") |> 
   # create new column that calculates log + 1 transform average abundance/liter
   mutate(log_ave_lit = log(ave_lit + 1))
@@ -216,7 +216,7 @@ ostracods_plot <- ggplot(data = ostracods, # assigns plot to object ostracods_pl
                          mapping = aes(x = site_full, # x-axis: site_full
                                        y = log_ave_lit)) + # y-axis: log_ave_lit
   # first layer: jittered points to show individual average abundance/L measurements
-  geom_jitter(height = 0, # jitter hieght is 0
+  geom_jitter(height = 0, # jitter height is 0
               width = 0.1, # jitter width is 0
               shape = 21, # jitter point shape is circle
               size = 2) + # jitter point size is 2
@@ -344,7 +344,7 @@ facets:
 - y-axis: log + 1 transformed average abundance/L (column: `log_ave_lit`)
 - color: by taxon
 - geometry: points (using `geom_point()`)
-- facets: use function `facet_wrap()` by column `taxon` and arguemnt `scales = "free"`
+- facets: use function `facet_wrap()` by column `taxon` and arguement `scales = "free"`
 
 ### b. Wrangle your data
 ::: {.callout-note}
@@ -426,8 +426,8 @@ In 3-5 sentences each, describe differences or similarities between taxa in rela
 :::
 
 **Differences between taxa in relationships between abundance and salinity**:
-The relationship between abundance and salinity varies substantially across taxa which is seen by the different point distributions within each facet. For instance, copepods display relatively high abundances across a wide range of salinities, with several high values (shown by points above 4–6 on the y-axis) which occur at both low and moderate salinities, indicating a weak or inconsistent relationship. In contrast, some taxa (including copepod, ostracod and cladocera) show higher abundances primarily at low salinity values (shown by clustered points with higher y-values near the left side of the x-axis), with abundances dropping off at higher salinities. Other taxa (such as Nematode and Annelida polychaete) are mostly concentrated near zero abundance across all salinities (indicated by points clustered around near-zero y-axis values), indicating little variation and no clear relationship.
+The relationship between abundance and salinity varies substantially across taxa which is seen by the different point distributions within each facet. Some taxa (including copepod, ostracod and cladocera) show higher abundances primarily at low salinity values (shown by clustered points with higher y-values near the left side of the x-axis), with abundances dropping off at higher salinities. Other taxa (such as Nematode and Annelida polychaete) are mostly concentrated near zero abundance across all salinities (indicated by points clustered around near-zero y-axis values), indicating little variation and no clear relationship.
 
 **Similarities between taxa in relationships between abundance and salinity**:
-Across somne taxa (including: cladocera, ostracod, and copepod), there is a general pattern of higher abundances occurring at lower salinity values, shown by the clustering of higher y-values on the left side of many panels. Additionally, some taxa (including: Annelida oligochaete, Annelida polychaete, and Nematode) exhibit a large number of observations near zero abundance (points along the bottom of each panel), suggesting that low or absent abundance is most common regardless of salinity. Several taxa also show high variability at low salinity (wide vertical spread of points near low x-values), but much less variability at higher salinity, where points are more tightly clustered near zero. 
+Across some taxa (including: cladocera, ostracod, and copepod), there is a general pattern of higher abundances occurring at lower salinity values, shown by the clustering of higher y-values on the left side of many panels. Additionally, some taxa (including: Annelida oligochaete, Annelida polychaete, and Nematode) exhibit a large number of observations near zero abundance (points along the bottom of each panel), suggesting that low or absent abundance is most common regardless of salinity. Several taxa also show high variability at low salinity (wide vertical spread of points near low x-values), but much less variability at higher salinity, where points are more tightly clustered near zero. 
 
