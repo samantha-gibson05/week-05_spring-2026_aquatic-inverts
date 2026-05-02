@@ -184,7 +184,16 @@ At the end of your code chunk, display 10 random rows from your data frame using
 :::
 ```{r}
 #| label: 1b wrangling data
+#| 
+# creating a new object ostracods from aq_ins_clean
+ostracods <- aq_ins_clean |> 
+  # filter to only include opbseervations where taxon is ostracods
+  filter(taxon == "ostracod") |> 
+  # create new column that calculates log + 1 transform average abundance/liter
+  mutate(log_ave_lit = log(ave_lit + 1))
 
+# display 10 random rows from ostracod data frame
+ostracods |> slice_sample(n = 10)
 ```
 
 ### c. Code your figure
