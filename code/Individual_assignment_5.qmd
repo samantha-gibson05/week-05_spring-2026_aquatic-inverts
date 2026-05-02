@@ -305,7 +305,7 @@ salinity <- ggplot(data = aq_ins_clean,
 
 
 # combine salinity, copepod, and ostracod plots into one multipanel figure
-salinity / (copepods + ostracods_plot)
+salinity / (copepods | ostracods_plot)
 ```
 
 ### e. Interpret your figure
